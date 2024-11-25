@@ -1,0 +1,77 @@
+﻿<Window x:Class="Trolobo.kundeAnlegen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Trolobo"
+        mc:Ignorable="d"
+        Icon="C:\Users\mkronenberger\source\repos\Trolobo\Trolobo\apfelico.png"
+        Title="TROLOBO Datenverwaltung" Height="450" Width="250" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,0,-6" Background="#FF272727">
+        <Button x:Name="save" Click="save_Click" Content="Kunde anlegen" HorizontalAlignment="Center" Margin="0,367,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.61,0.92" Width="134" BorderBrush="#FFD0D0D0" Background="#FF333333" Foreground="#FFD0D0D0" Cursor="Hand"/>
+        <TextBox x:Name="FirmenName" MaxLength="50" HorizontalAlignment="Center" Margin="0,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" Background="White"/>
+        <TextBox x:Name="Strasse" MaxLength="50" HorizontalAlignment="Center" Margin="0,155,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="150"/>
+        <TextBox x:Name="plz" MaxLength="50" HorizontalAlignment="Center" Margin="0,205,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="150" RenderTransformOrigin="-0.186,-1.528"/>
+        <TextBox x:Name="Ort" MaxLength="50" HorizontalAlignment="Center" Margin="0,255,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="150"/>
+        <TextBox x:Name="Postfach" MaxLength="50" HorizontalAlignment="Center" Margin="0,305,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="150"/>
+
+        <TextBlock IsHitTestVisible="False" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="48,105,0,0" Foreground="DarkGray" Width="150" Height="18">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=FirmenName}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style><Run Language="de-de" Text=" "/><Run Text="Firmenname eingeben"/></TextBlock>
+        <TextBlock IsHitTestVisible="False" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="48,155,0,0" Foreground="DarkGray" Width="100" Height="18">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=Strasse}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style><Run Language="de-de" Text=" "/><Run Text="Strasse eingeben"/></TextBlock>
+        <TextBlock IsHitTestVisible="False" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="48,205,0,0" Foreground="DarkGray" Width="100" Height="18">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=plz}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style><Run Language="de-de" Text=" "/><Run Text="PLZ eingeben"/></TextBlock>
+        <TextBlock IsHitTestVisible="False" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="48,255,0,0" Foreground="DarkGray" Width="100" Height="18">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=Ort}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style><Run Language="de-de" Text=" "/><Run Text="Ort eingeben"/></TextBlock>
+        <TextBlock IsHitTestVisible="False" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="48,305,0,0" Foreground="DarkGray" Width="100" Height="18">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=Postfach}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style><Run Language="de-de" Text=" "/><Run Text="Postfach eingeben"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="19,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="#FFD0D0D0" FontWeight="Bold"><Run Language="de-de" Text="Kundenanlage"/></TextBlock>
+        <Image HorizontalAlignment="Center" Height="89" Margin="0,16,0,0" VerticalAlignment="Top" Width="230" Source="/logo-transparent-png.png"/>
+
+    </Grid>
+</Window>

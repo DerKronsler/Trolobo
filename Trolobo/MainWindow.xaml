@@ -1,0 +1,31 @@
+﻿<Window x:Name="Haupt" x:Class="Trolobo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Trolobo"
+        mc:Ignorable="d"
+        Icon="C:\Users\mkronenberger\source\repos\Trolobo\Trolobo\apfelico.png"
+        Title="TROLOBO Datenverwaltung" Height="550" Width="400" Closing="WindowClosing" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize"  KeyDown="Haupt_KeyDown"
+        >
+    <Window.Resources>
+        <local:TroloDBDataSet x:Key="troloDBDataSet"/>
+        <CollectionViewSource x:Key="firmenViewSource" Source="{Binding Firmen, Source={StaticResource troloDBDataSet}}"/>
+    </Window.Resources>
+    <Grid x:Name="KundeAnlegen" Cursor="Arrow" DataContext="{StaticResource firmenViewSource}" Background="#FF272727">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="67*"/>
+            <ColumnDefinition Width="192*"/>
+            <ColumnDefinition Width="141*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btn_kundeanlegen"  Cursor="Hand" Click="Button_Click" Content="Kunde anlegen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="250" Height="35" Grid.Column="2" Background="#FF333333" BorderBrush="#FFD0D0D0" Foreground="#FFD0D0D0" Grid.ColumnSpan="2" Margin="8,245,0,0"/>
+        <Button x:Name="btn_auftragerfassen" Cursor ="Hand" Content="Auftrag erfassen" Click="Button_Click_1" HorizontalAlignment="Left" Margin="8,333,0,0" VerticalAlignment="Top" Height="35" Width="250" Grid.Column="2" Background="#FF333333" BorderBrush="#FFD0D0D0" Foreground="#FFD0D0D0" Grid.ColumnSpan="2"/>
+        <Button Cursor ="Hand" x:Name="kundenverwaltung" Click="kundenverwaltung_Click" Content="Kundenverwaltung" HorizontalAlignment="Left" Margin="8,424,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.681,0.366" Height="35" Width="250" Grid.Column="2" Background="#FF333333" BorderBrush="#FFD0D0D0" Foreground="#FFD0D0D0" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="conState" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="10,498,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="11" Width="218" Foreground="#FFD0D0D0" FontSize="7"/>
+        <TextBlock x:Name="conState_Kopieren" HorizontalAlignment="Left" Margin="82,498,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="11" Width="49" Foreground="#FFD0D0D0" FontSize="7" Grid.Column="3"><Run Language="de-de" Text="Version 1.0"/></TextBlock>
+        <Image x:Name="Logo" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="184" Margin="-3,44,0,0" VerticalAlignment="Top" Width="393" Source="/logo-transparent-png.png"/>
+        <TextBlock x:Name="Unterschrift" Grid.Column="2" HorizontalAlignment="Left" Margin="31,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="191" Foreground="White" FontWeight="Bold" FontSize="16" Grid.ColumnSpan="2"><Run Language="de-de" Text="Datenverwaltungssystem"/></TextBlock>
+
+    </Grid>
+</Window>

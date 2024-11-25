@@ -1,0 +1,41 @@
+﻿<Window x:Class="Trolobo.firmenInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Trolobo"
+        mc:Ignorable="d"
+        Icon="C:\Users\mkronenberger\source\repos\Trolobo\Trolobo\apfelico.png"
+        Title="TROLOBO Datenverwaltung" Height="Auto" Width="700" Loaded="Window_Loaded" SizeToContent="Height" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <local:TroloDBDataSet x:Key="troloDBDataSet"/>
+        <CollectionViewSource x:Key="auftraegeViewSource" Source="{Binding Auftraege, Source={StaticResource troloDBDataSet}}"/>
+        <CollectionViewSource x:Key="firmenViewSource" Source="{Binding Firmen, Source={StaticResource troloDBDataSet}}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource auftraegeViewSource}" Background="#FF272727">
+        <DataGrid x:Name="auftraegeDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,10,10,224" RowDetailsVisibilityMode="VisibleWhenSelected" Background="#FF272727" BorderBrush="#FF272727" Foreground="#FFD0D0D0" ColumnWidth="SizeToCells" RowBackground="#FF272727" IsReadOnly="True" GridLinesVisibility="None">
+            <DataGrid.ColumnHeaderStyle>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="#FF272727" />
+
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="aIDColumn" Binding="{Binding AID}" Header="AID" MinWidth="25" Width="SizeToCells"/>
+                <DataGridTextColumn x:Name="fIDColumn" Binding="{Binding FID}" Header="FID" MinWidth="25" Width="SizeToCells"/>
+                <DataGridTextColumn x:Name="auftragshoeheColumn" Binding="{Binding Auftragshoehe}" Header="Auftragshoehe" MinWidth="85" Width="SizeToCells"/>
+                <DataGridTextColumn x:Name="beschreibungColumn" Binding="{Binding Beschreibung}" Header="Beschreibung" Width="*"/>
+                
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Auftrags erledigt" Click="MenuItem_Click" />
+                    <MenuItem Header="Auftrag bearbeiten" Click="MenuItem_Click_1" />
+                    <Separator />
+                    <MenuItem Header="Aktualisieren" Click="MenuItem_Click_2" />
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+
+        </DataGrid>
+    </Grid>
+</Window>
